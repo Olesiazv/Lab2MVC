@@ -1,0 +1,35 @@
+<section class="stack">
+  <div class="hero-card">
+    <p class="eyebrow">DIGITAL LIBRARY</p>
+    <h1><%= heroTitle %></h1>
+    <p class="hero-text"><%= heroText %></p>
+
+    <% if (!is404) { %>
+      <div class="hero-actions">
+        <a href="/books" class="btn btn-primary">Przeglądaj książki</a>
+        <a href="/books/new" class="btn btn-secondary">Dodaj książkę</a>
+      </div>
+    <% } %>
+  </div>
+
+  <% if (!is404) { %>
+    <div class="grid-cards">
+
+      <a class="info-card" href="/books">
+        <h3>Książki</h3>
+        <p>Lista książek, szczegóły, dodawanie, edycja i usuwanie.</p>
+      </a>
+
+      <a class="info-card" href="/authors">
+        <h3>Autorzy</h3>
+        <p>Dodatkowy model z relacją do książek.</p>
+      </a>
+
+      <a class="info-card" href="/loans">
+        <h3>Wypożyczenia</h3>
+        <p>Model pokazujący dostępność książek i historię wypożyczeń.</p>
+      </a>
+
+    </div>
+  <% } %>
+</section>

@@ -1,0 +1,35 @@
+<section class="stack">
+  <div class="panel">
+    <p class="eyebrow">AUTORZY</p>
+    <h1>Lista autorów</h1>
+  </div>
+
+  <% if (errors.length) { %>
+    <div class="error-box">
+      <ul>
+        <% errors.forEach(error => { %>
+          <li><%= error %></li>
+        <% }) %>
+      </ul>
+    </div>
+  <% } %>
+
+  <form action="/authors/new" method="POST" class="panel form stack-sm" data-validate>
+    <div>
+      <label for="name">Imię i nazwisko autora</label>
+      <input id="name" name="name" type="text" minlength="3" required />
+    </div>
+
+    <div class="row">
+      <button class="btn btn-primary" type="submit">Dodaj autora</button>
+    </div>
+  </form>
+
+  <div class="stack-sm">
+    <% authors.forEach(author => { %>
+      <article class="book-card">
+        <h3><%= author.name %></h3>
+      </article>
+    <% }) %>
+  </div>
+</section>

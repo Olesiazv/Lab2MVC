@@ -1,0 +1,76 @@
+<section class="stack">
+  <div class="panel">
+    <p class="eyebrow">NOWE WYPOŻYCZENIE</p>
+    <h1>Dodaj wypożyczenie</h1>
+  </div>
+
+  <% if (errors.length) { %>
+    <div class="error-box">
+      <ul>
+        <% errors.forEach(error => { %>
+          <li><%= error %></li>
+        <% }) %>
+      </ul>
+    </div>
+  <% } %>
+
+  <form action="/loans/new" method="POST" class="panel form stack-sm" data-validate>
+    <div>
+      <label for="bookId">Książka</label>
+      <select id="bookId" name="bookId" required>
+        <option value="">Wybierz książkę</option>
+        <% books.forEach(book => { %>
+          <option value="<%= book.id %>" <%= String(loan.bookId) === String(book.id) ? 'selected' : '' %>>
+            <%= book.title %>
+          </option>
+        <% }) %>
+      </select>
+    </div>
+
+    <div>
+      <label for="borrower">Imię i nazwisko wypożyczającego</label>
+      <input
+        id="borrower"
+        name="borrower"
+        type="text"
+        minlength="3"
+        value="<%= loan.borrower || '' %>"
+        required
+      />
+    </div>
+
+    <div>
+      <label for="loanDate">Data wypożyczenia</label>
+      <input
+        id="loanDate"
+        name="loanDate"
+        type="date"
+        value="<%= loan.loanDate || '' %>"
+        required
+      />
+    </div>
+
+    <div>
+      <label for="returnDate">Data zwrotu</label>
+      <input
+        id="returnDate"
+        name="returnDate"
+        type="date"
+        value="<%= loan.returnDate || '' %>"
+      />
+    </div>
+
+    <div>
+      <label for="status">Status</label>
+      <select id="status" name="status" required>
+        <option value="active" <%= loan.status === 'active' ? 'selected' : '' %>>active</option>
+        <option value="returned" <%= loan.status === 'returned' ? 'selected' : '' %>>returned</option>
+      </select>
+    </div>
+
+    <div class="row">
+      <button class="btn btn-primary" type="submit">Zapisz</button>
+      <a href="/loans" class="btn btn-secondary">Powrót</a>
+    </div>
+  </form>
+</section>

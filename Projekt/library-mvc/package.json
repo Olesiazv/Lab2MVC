@@ -1,0 +1,15 @@
+{
+  "name": "library-mvc",
+  "version": "1.0.0",
+  "description": "System zarządzania cyfrową biblioteką - MVC",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.1",
+    "express-ejs-layouts": "^2.5.1"
+  }
+}

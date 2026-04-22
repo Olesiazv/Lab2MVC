@@ -1,0 +1,16 @@
+<% if (message) { %>
+  <div class="alert success"><%= message %></div>
+<% } %>
+<% if (error) { %>
+  <div class="alert danger"><%= error %></div>
+<% } %>
+<% if (errors && errors.length) { %>
+  <div class="alert danger">
+    <strong>Popraw formularz:</strong>
+    <ul>
+      <% errors.forEach(error => { %>
+        <li><%= error %></li>
+      <% }) %>
+    </ul>
+  </div>
+<% } %>

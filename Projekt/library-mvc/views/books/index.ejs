@@ -1,0 +1,91 @@
+<section class="stack">
+  <div class="panel">
+    <div>
+      <p class="eyebrow">PANEL KSIĄŻEK</p>
+      <h1>Książki</h1>
+    </div>
+    <a href="/books/new" class="circle-btn">+</a>
+  </div>
+
+  <div class="panel accent">
+    <h2>Twoja biblioteka zawsze pod ręką</h2>
+    <p>
+      Zarządzaj książkami, filtruj je po autorze, sortuj i wyszukuj tytuły.
+      Interfejs jest zaprojektowany w stylu mobilnym.
+    </p>
+    <a href="/books/new" class="btn btn-primary">Dodaj książkę</a>
+  </div>
+
+  <div class="panel">
+    <div class="panel-header">
+      <div>
+        <h2>Wyszukaj i filtruj</h2>
+        <p class="muted">Przeglądaj listę książek według własnych kryteriów.</p>
+      </div>
+      <span class="badge"><%= books.length %> wyników</span>
+    </div>
+
+    <form method="GET" action="/books" class="form stack-sm" data-validate>
+      <div>
+        <label for="q">Szukaj</label>
+        <input
+          id="q"
+          type="text"
+          name="q"
+          value="<%= filters.q %>"
+          placeholder="np. thriller, Evelyn, Jackson"
+        />
+      </div>
+
+      <div>
+        <label for="authorId">Autor</label>
+        <select id="authorId" name="authorId">
+          <option value="">Wszyscy autorzy</option>
+          <% authors.forEach(author => { %>
+            <option value="<%= author.id %>" <%= String(filters.authorId) === String(author.id) ? 'selected' : '' %>>
+              <%= author.name %>
+            </option>
+          <% }) %>
+        </select>
+      </div>
+
+      <div>
+        <label for="sort">Sortowanie</label>
+        <select id="sort" name="sort">
+          <option value="">Domyślne</option>
+          <option value="title-asc" <%= filters.sort === 'title-asc' ? 'selected' : '' %>>Tytuł A-Z</option>
+          <option value="title-desc" <%= filters.sort === 'title-desc' ? 'selected' : '' %>>Tytuł Z-A</option>
+          <option value="year-asc" <%= filters.sort === 'year-asc' ? 'selected' : '' %>>Rok rosnąco</option>
+          <option value="year-desc" <%= filters.sort === 'year-desc' ? 'selected' : '' %>>Rok malejąco</option>
+        </select>
+      </div>
+
+      <div class="row">
+        <button class="btn btn-primary" type="submit">Zastosuj</button>
+        <a href="/books" class="btn btn-secondary">Wyczyść</a>
+      </div>
+    </form>
+  </div>
+
+  <div class="stack-sm">
+    <% books.forEach(book => { %>
+      <article class="book-card">
+        <div class="meta-row">
+          <span class="pill"><%= book.year %></span>
+          <span class="pill soft"><%= book.author?.name %></span>
+        </div>
+
+        <h3><%= book.title %></h3>
+        <p class="desc"><%= book.description %></p>
+
+        <div class="row">
+          <a href="/books/<%= book.id %>" class="btn btn-secondary">Szczegóły</a>
+          <a href="/books/<%= book.id %>/edit" class="btn btn-secondary">Edytuj</a>
+          <form action="/books/<%= book.id %>/delete" method="POST">
+            <button type="submit" class="btn btn-danger">Usuń</button>
+          </form>
+        </div>
+      </article>
+    <% }) %>
+  </div>
+</section>

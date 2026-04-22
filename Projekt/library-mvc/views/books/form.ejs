@@ -1,0 +1,72 @@
+<section class="stack">
+  <div class="panel">
+    <p class="eyebrow">FORMULARZ</p>
+    <h1><%= formTitle %></h1>
+  </div>
+
+  <% if (errors.length) { %>
+    <div class="error-box">
+      <h3>Popraw formularz:</h3>
+      <ul>
+        <% errors.forEach(error => { %>
+          <li><%= error %></li>
+        <% }) %>
+      </ul>
+    </div>
+  <% } %>
+
+  <form action="<%= formAction %>" method="POST" class="panel form stack-sm" data-validate>
+    <div>
+      <label for="title">Tytuł</label>
+      <input
+        id="title"
+        name="title"
+        type="text"
+        value="<%= book.title || '' %>"
+        minlength="2"
+        required
+      />
+    </div>
+
+    <div>
+      <label for="authorId">Autor</label>
+      <select id="authorId" name="authorId" required>
+        <option value="">Wybierz autora</option>
+        <% authors.forEach(author => { %>
+          <option value="<%= author.id %>" <%= String(book.authorId) === String(author.id) ? 'selected' : '' %>>
+            <%= author.name %>
+          </option>
+        <% }) %>
+      </select>
+    </div>
+
+    <div>
+      <label for="year">Rok wydania</label>
+      <input
+        id="year"
+        name="year"
+        type="number"
+        min="1450"
+        max="2100"
+        value="<%= book.year || '' %>"
+        required
+      />
+    </div>
+
+    <div>
+      <label for="description">Krótki opis</label>
+      <textarea
+        id="description"
+        name="description"
+        rows="5"
+        minlength="10"
+        required
+      ><%= book.description || '' %></textarea>
+    </div>
+
+    <div class="row">
+      <button class="btn btn-primary" type="submit">Zapisz</button>
+      <a href="/books" class="btn btn-secondary">Powrót</a>
+    </div>
+  </form>
+</section>

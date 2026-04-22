@@ -1,0 +1,28 @@
+<section class="stack">
+  <div class="panel">
+    <div class="meta-row">
+      <span class="pill"><%= book.year %></span>
+      <span class="pill soft"><%= book.author?.name %></span>
+    </div>
+
+    <h1><%= book.title %></h1>
+    <p class="desc big"><%= book.description %></p>
+
+    <div class="detail-list">
+      <div class="detail-item">
+        <span class="detail-label">Autor</span>
+        <strong><%= book.author?.name %></strong>
+      </div>
+
+      <div class="detail-item">
+        <span class="detail-label">Rok wydania</span>
+        <strong><%= book.year %></strong>
+      </div>
+    </div>
+
+    <div class="row">
+      <a href="/books/<%= book.id %>/edit" class="btn btn-primary">Edytuj</a>
+      <a href="/books" class="btn btn-secondary">Powrót</a>
+    </div>
+  </div>
+</section>

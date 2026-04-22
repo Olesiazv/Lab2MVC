@@ -1,0 +1,26 @@
+<section class="stack">
+  <div class="panel">
+    <div class="panel-header">
+      <div>
+        <p class="eyebrow">WYPOŻYCZENIA</p>
+        <h1>Lista wypożyczeń</h1>
+      </div>
+      <a href="/loans/new" class="circle-btn">+</a>
+    </div>
+  </div>
+
+  <div class="stack-sm">
+    <% loans.forEach(loan => { %>
+      <article class="book-card">
+        <div class="meta-row">
+          <span class="pill"><%= loan.status %></span>
+          <span class="pill soft"><%= loan.loanDate %></span>
+        </div>
+
+        <h3><%= loan.book?.title || 'Nieznana książka' %></h3>
+        <p class="desc">Wypożyczający: <strong><%= loan.borrower %></strong></p>
+        <p class="desc">Data zwrotu: <%= loan.returnDate || 'brak' %></p>
+      </article>
+    <% }) %>
+  </div>
+</section>
