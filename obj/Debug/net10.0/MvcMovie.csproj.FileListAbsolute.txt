@@ -1,0 +1,8 @@
+/Users/vladpoluvedko/MvcMovie/obj/Debug/net10.0/rpswa.dswa.cache.json
+/Users/vladpoluvedko/MvcMovie/obj/Debug/net10.0/MvcMovie.GeneratedMSBuildEditorConfig.editorconfig
+/Users/vladpoluvedko/MvcMovie/obj/Debug/net10.0/MvcMovie.AssemblyInfoInputs.cache
+/Users/vladpoluvedko/MvcMovie/obj/Debug/net10.0/MvcMovie.AssemblyInfo.cs
+/Users/vladpoluvedko/MvcMovie/obj/Debug/net10.0/MvcMovie.csproj.CoreCompileInputs.cache
+/Users/vladpoluvedko/MvcMovie/obj/Debug/net10.0/MvcMovie.MvcApplicationPartsAssemblyInfo.cache
+/Users/vladpoluvedko/MvcMovie/obj/Debug/net10.0/MvcMovie.RazorAssemblyInfo.cache
+/Users/vladpoluvedko/MvcMovie/obj/Debug/net10.0/MvcMovie.RazorAssemblyInfo.cs

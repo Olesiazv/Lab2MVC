@@ -1,0 +1,34 @@
+@model MvcMovie.Models.Movie
+
+<h1>Edit</h1>
+
+<form asp-action="Edit">
+    <input type="hidden" asp-for="Id" />
+
+    <div>
+        <label asp-for="Title"></label>
+        <input asp-for="Title" />
+    </div>
+
+    <div>
+        <label asp-for="ReleaseDate"></label>
+        <input asp-for="ReleaseDate" />
+    </div>
+
+    <div>
+        <label asp-for="Genre"></label>
+        <input asp-for="Genre" />
+    </div>
+
+    <div>
+        <label asp-for="Price"></label>
+        <input asp-for="Price" />
+    </div>
+
+    <div>
+        <label asp-for="Rating"></label>
+        <input asp-for="Rating" />
+    </div>
+
+    <button type="submit">Save</button>
+</form>
